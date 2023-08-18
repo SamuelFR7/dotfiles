@@ -7,6 +7,7 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/.local/bin
 
 alias cat="bat --style=auto"
 alias ls="exa --icons -1"
+alias vim="nvim"
 
 export PROJECTS="$HOME/www"
 
