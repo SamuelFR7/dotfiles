@@ -14,3 +14,5 @@ export PROJECTS="$HOME/www"
 export FZF_DEFAULT_COMMAND='find $PROJECTS -maxdepth 2 -mindepth 2 -type d'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+bindkey -s ^f "tms\n"
