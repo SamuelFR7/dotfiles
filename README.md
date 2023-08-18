@@ -27,7 +27,7 @@ ttf-nerd-fonts-symbols-common otf-firamono-nerd inter-font              \
 ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa            \
 ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd            \
 adobe-source-code-pro-fonts ttf-cascadia-code visual-studio-code-bin    \
-ttf-cascadia-code-nerd ffmpeg neovim
+ttf-cascadia-code-nerd ffmpeg neovim fzf
 ```
 
 ## Important
