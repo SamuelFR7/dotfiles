@@ -29,6 +29,7 @@ local plugins = {
       overrides.mason,
       ensure_installed = {
         "pyright",
+        "tailwindcss-language-server"
       }
     }
   },
