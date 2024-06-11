@@ -1,0 +1,36 @@
+eval "$(starship init zsh)"
+
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+alias cat="bat --style=plain"
+alias ls="eza --icons -1"
+alias vim="nvim"
+
+. "$HOME/.asdf/asdf.sh"
+. ~/.asdf/plugins/golang/set-env.zsh
+
+# bun completions
+[ -s "/Users/samuelfr/.bun/_bun" ] && source "/Users/samuelfr/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin"
+export LD_LIBRARY_PATH=/usr/local/lib
+export DYLD_LIBRARY_PATH=/usr/local/lib
+
+# pnpm
+export PNPM_HOME="/Users/samuelfr/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+bindkey -s ^f "tmux-sessionizer\n"
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
