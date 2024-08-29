@@ -17,7 +17,7 @@ alias lg="lazygit"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$(go env GOBIN)"
+export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$(go env GOBIN):$HOME/.local/scripts"
 export LD_LIBRARY_PATH=/usr/local/lib
 export DYLD_LIBRARY_PATH=/usr/local/lib
 
@@ -36,4 +36,3 @@ export GOBIN=$HOME/go/bin
 bindkey -s ^f "tmux-sessionizer\n"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
