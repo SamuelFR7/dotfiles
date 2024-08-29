@@ -1,3 +1,11 @@
+require('rose-pine').setup({
+    styles = {
+        bold = true,
+        italic = false,
+        transparency = true
+    }
+})
+
 function ColorMyPencils(color)
 	color = color or "rose-pine"
 	vim.cmd.colorscheme(color)
@@ -8,3 +16,5 @@ function ColorMyPencils(color)
 end
 
 ColorMyPencils()
+
+
