@@ -21,6 +21,22 @@ return require('packer').startup(function(use)
 	  end
   })
 
+  use({
+      "kdheepak/lazygit.nvim",
+      -- optional for floating window border decoration
+      requires = {
+          "nvim-lua/plenary.nvim",
+      },
+  })
+
+  use({
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      config = function()
+          require("nvim-autopairs").setup {}
+      end
+  })
+
   use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
