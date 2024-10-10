@@ -11,6 +11,8 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        "mfussenegger/nvim-dap",
+        "jay-babu/mason-nvim-dap.nvim"
     },
 
     config = function()
@@ -24,12 +26,17 @@ return {
 
         require("fidget").setup({})
         require("mason").setup()
+        require("mason-nvim-dap").setup({
+            ensure_installed = { "php", "js" }
+        })
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "gopls",
-                "ts_ls"
+                "intelephense",
+                "ts_ls",
+                "html",
+                "cssls"
             },
             handlers = {
                 function(server_name) -- default handler (optional)

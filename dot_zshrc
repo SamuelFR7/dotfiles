@@ -2,7 +2,7 @@ eval "$(starship init zsh)"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias cat="bat --style=plain"
 alias ls="eza --group-directories-first --icons -1"
@@ -16,7 +16,7 @@ alias lg="lazygit"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$(go env GOBIN):$HOME/.local/scripts"
+export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/scripts:$HOME/.local/bin"
 export LD_LIBRARY_PATH=/usr/local/lib
 export DYLD_LIBRARY_PATH=/usr/local/lib
 
@@ -28,10 +28,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# golang
-export GOPATH=$HOME/go
-export GOBIN=$HOME/go/bin
-
 bindkey -s ^f "tmux-sessionizer\n"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+alias ipecomposerup='cd /opt/sources/docker-v2/infra && docker compose up -d'
