@@ -34,7 +34,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "intelephense",
-                "ts_ls",
+                "vtsls",
                 "html",
                 "cssls"
             },

@@ -1,6 +1,7 @@
 # Shell integrations
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
 
 # Set the directory we want to store zinit and plugins
@@ -54,4 +55,5 @@ alias ipecomposerup='cd /opt/sources/docker-v2/infra && docker compose up -d'
 bindkey -s ^f "tmux-sessionizer\n"
 
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$(go env GOBIN):$HOME/.local/scripts"
+export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/scripts"
+eval "$($HOME/.local/bin/mise activate zsh)"
