@@ -12,7 +12,9 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
         "mfussenegger/nvim-dap",
-        "jay-babu/mason-nvim-dap.nvim"
+        "jay-babu/mason-nvim-dap.nvim",
+        "rcarriga/nvim-dap-ui",
+        "nvim-neotest/nvim-nio"
     },
 
     config = function()
@@ -29,6 +31,7 @@ return {
         require("mason-nvim-dap").setup({
             ensure_installed = { "php", "js" }
         })
+        require('dapui').setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
@@ -83,7 +86,7 @@ return {
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    require('luasnip').lsp_expand(args.body) -- For luasnip users.
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -111,5 +114,46 @@ return {
                 prefix = "",
             },
         })
+
+        local dap = require('dap')
+
+        dap.adapters.php = {
+            type = 'executable',
+            command = 'php-debug-adapter',
+            args = { '--port', '9003' }
+        }
+
+        dap.configurations.php = {
+            {
+                type = 'php',
+                request = 'launch',
+                name = 'Listen for Xdebug',
+                port = 9003,
+                pathMappings = {
+                    ["/opt/sources/siagro"] = "/opt/sources/siagro",
+                    ["/opt/sources/sidab"] = "/opt/sources/sidab",
+                    ["/opt/sources/sidap"] = "/opt/sources/sidap",
+                    ["/opt/sources/sidapi"] = "/opt/sources/sidapi",
+                    ["/opt/sources/sidato"] = "/opt/sources/sidato",
+                    ["/opt/sources/sidiarn"] = "/opt/sources/sidiarn",
+                    ["/opt/sources/sigaderr"] = "/opt/sources/sigaderr",
+                    ["/opt/sources/sigama"] = "/opt/sources/sigama",
+                    ["/opt/sources/sigeal"] = "/opt/sources/sigeal",
+                    ["/opt/sources/sisdiagro"] = "/opt/sources/sisdiagro",
+                }
+            }
+        }
+
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+            require("dapui").open()
+        end
+
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+            require("dapui").close()
+        end
+
+        dap.listeners.before.event_exited["dapui_config"] = function()
+            require("dapui").close()
+        end
     end
 }
