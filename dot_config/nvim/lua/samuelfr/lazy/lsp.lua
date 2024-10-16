@@ -144,6 +144,21 @@ return {
             }
         }
 
+        dap.configurations.javascript = {
+            {
+                type = 'node2',
+                request = 'launch',
+                name = 'Launch file',
+                program = '${file}',
+                cwd = vim.fn.getcwd(),
+                sourceMaps = true,
+                protocol = 'inspector',
+                console = 'integratedTerminal'
+            }
+        }
+
+        dap.configurations.typescript = dap.configurations.javascript
+
         dap.listeners.after.event_initialized["dapui_config"] = function()
             require("dapui").open()
         end

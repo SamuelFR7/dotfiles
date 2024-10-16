@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-	color = color or 'rose-pine'
+	color = color or 'everforest'
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -8,11 +8,11 @@ end
 
 return {
     {
-        "rose-pine/neovim",
-        name = "rose-pine",
+        "neanias/everforest-nvim",
+        name = "everforest",
         config = function()
-            require('rose-pine').setup({
-                disable_background = true,
+            require('everforest').setup({
+                transparent_background_level = 2,
                 styles = {
                     italic = false,
                 },
