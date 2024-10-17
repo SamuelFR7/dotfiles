@@ -56,5 +56,5 @@ alias ipecomposerdown='docker compose -f /opt/sources/docker-v2/infra/docker-com
 bindkey -s ^f "tmux-sessionizer\n"
 
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/scripts"
+export PATH="/opt/nvim-linux64/bin:$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/scripts"
 eval "$($HOME/.local/bin/mise activate zsh)"

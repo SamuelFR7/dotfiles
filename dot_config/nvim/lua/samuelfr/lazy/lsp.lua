@@ -39,7 +39,7 @@ return {
                 "intelephense",
                 "vtsls",
                 "html",
-                "cssls"
+                "cssls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
