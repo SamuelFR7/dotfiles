@@ -29,7 +29,7 @@ return {
         require("fidget").setup({})
         require("mason").setup()
         require("mason-nvim-dap").setup({
-            ensure_installed = { "php", "js" }
+            ensure_installed = { "php" }
         })
         require('dapui').setup()
         require("mason-lspconfig").setup({
@@ -40,6 +40,7 @@ return {
                 "vtsls",
                 "html",
                 "cssls",
+                "sqlls"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -143,21 +144,6 @@ return {
                 }
             }
         }
-
-        dap.configurations.javascript = {
-            {
-                type = 'node2',
-                request = 'launch',
-                name = 'Launch file',
-                program = '${file}',
-                cwd = vim.fn.getcwd(),
-                sourceMaps = true,
-                protocol = 'inspector',
-                console = 'integratedTerminal'
-            }
-        }
-
-        dap.configurations.typescript = dap.configurations.javascript
 
         dap.listeners.after.event_initialized["dapui_config"] = function()
             require("dapui").open()
