@@ -1,5 +1,5 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds {
+keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
@@ -8,7 +8,7 @@ keybinds {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Ctrl n" { SwitchToMode "Normal"; }
+        // bind "Ctrl n" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
         bind "k" "Up" { Resize "Increase Up"; }
@@ -38,7 +38,7 @@ keybinds {
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
-        bind "Ctrl h" { SwitchToMode "Normal"; }
+        // bind "Ctrl h" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "h" "Left" { MovePane "Left"; }
@@ -47,7 +47,7 @@ keybinds {
         bind "l" "Right" { MovePane "Right"; }
     }
     tab {
-        bind "Ctrl t" { SwitchToMode "Normal"; }
+        // bind "Ctrl t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
         bind "l" "Right" "Down" "j" { GoToNextTab; }
@@ -143,6 +143,7 @@ keybinds {
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
+        bind "s" { LaunchOrFocusPlugin "session-manager" { floating true; move_to_focused_tab true; }; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
@@ -166,7 +167,7 @@ keybinds {
         bind "Ctrl p" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
-        bind "Ctrl n" { SwitchToMode "Resize"; }
+        // bind "Ctrl n" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
@@ -175,10 +176,10 @@ keybinds {
         bind "Ctrl o" { SwitchToMode "Session"; }
     }
     shared_except "tab" "locked" {
-        bind "Ctrl t" { SwitchToMode "Tab"; }
+        // bind "Ctrl t" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
+        // bind "Ctrl h" { SwitchToMode "Move"; }
     }
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
@@ -192,7 +193,7 @@ plugins {
     compact-bar location="zellij:compact-bar"
     session-manager location="zellij:session-manager"
     welcome-screen location="zellij:session-manager" {
-        welcome_screen true
+        welcome_screen true 
     }
     filepicker location="zellij:strider" {
         cwd "/"
@@ -261,46 +262,46 @@ plugins {
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
 themes {
-	rose-pine {
-		bg "#403d52"
-		fg "#e0def4"
-		red "#eb6f92"
-		green "#31748f"
-		blue "#9ccfd8"
-		yellow "#f6c177"
-		magenta "#c4a7e7"
-		orange "#fe640b"
-		cyan "#ebbcba"
-		black "#26233a"
-		white "#e0def4"
-	}
+    rose-pine {
+        bg "#403d52"
+        fg "#e0def4"
+        red "#eb6f92"
+        green "#31748f"
+        blue "#9ccfd8"
+        yellow "#f6c177"
+        magenta "#c4a7e7"
+        orange "#fe640b"
+        cyan "#ebbcba"
+        black "#26233a"
+        white "#e0def4"
+    }
+    everforest {
+        bg "#2b3339"
+        fg "#d3c6aa"
+        black "#4b565c"
+        red "#e67e80"
+        green "#a7c080"
+        yellow "#dbbc7f"
+        blue "#7fbbb3"
+        magenta "#d699b6"
+        cyan "#83c092"
+        white "#d3c6aa"
+        orange "#FF9E64"
+    }
 }
-// themes {
-//     dracula {
-//         fg 248 248 242
-//         bg 40 42 54
-//         red 255 85 85
-//         green 80 250 123
-//         yellow 241 250 140
-//         blue 98 114 164
-//         magenta 255 121 198
-//         orange 255 184 108
-//         cyan 139 233 253
-//         black 0 0 0
-//         white 255 255 255
-//     }
-// }
+
 
 theme "rose-pine"
+serialization_interval 1
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+// theme "rose-pine"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal

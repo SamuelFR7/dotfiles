@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/www/acs ~/www/wcs ~/www/tmp ~/www/personal/study ~/www/personal/college/oitavo-periodo ~/www/personal/projects ~/www/convencao ~/www/ipe /opt/sources -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
+	selected=$(find ~/www /opt/sources -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
 fi
 
 if [[ -z $selected ]]; then
