@@ -53,7 +53,7 @@ alias ipecomposerup='docker compose -f /opt/sources/docker-v2/infra/docker-compo
 alias ipecomposerdown='docker compose -f /opt/sources/docker-v2/infra/docker-compose.yml down'
 
 # Bindkeys
-bindkey -s ^f "zellij-sessionizer\n"
+bindkey -s ^f "tmux-sessionizer\n"
 
 export BUN_INSTALL="$HOME/.bun"
 export PATH="/opt/nvim-linux64/bin:$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/scripts"

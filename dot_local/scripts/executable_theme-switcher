@@ -6,7 +6,6 @@ THEME=$(gum choose "${THEME_NAMES[@]}" "<< Back" --header "Choose your theme" --
 if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
     cp ~/.local/scripts/themes/$THEME/kitty.toml ~/.config/kitty/current-theme.conf
     cp ~/.local/scripts/themes/$THEME/neovim.lua ~/.config/nvim/lua/samuelfr/lazy/colors.lua
-    sed -i "s/theme \".*\"/theme \"$THEME\"/g" ~/.config/zellij/config.kdl
     # gsettings get org.gnome.desktop.background picture-uri './themes/$THEME/background.jpg'
 
     source ~/.local/scripts/themes/$THEME/vscode.sh
