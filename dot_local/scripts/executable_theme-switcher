@@ -1,11 +1,12 @@
 #!/bin/bash
 
-THEME_NAMES=("Tokyo Night" "Catppuccin" "Nord" "Everforest" "Gruvbox" "Kanagawa" "Rose Pine")
+THEME_NAMES=("Nord" "Everforest" "Rose Pine")
 THEME=$(gum choose "${THEME_NAMES[@]}" "<< Back" --header "Choose your theme" --height 10 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
 if [ -n "$THEME" ] && [ "$THEME" != "<<-back" ]; then
-    cp ~/.local/scripts/themes/$THEME/kitty.toml ~/.config/kitty/current-theme.conf
+    cp ~/.local/scripts/themes/$THEME/kitty.conf ~/.config/kitty/current-theme.conf
     cp ~/.local/scripts/themes/$THEME/neovim.lua ~/.config/nvim/lua/samuelfr/lazy/colors.lua
+    cp ~/.local/scripts/themes/$THEME/tmux.conf ~/.config/tmux/theme.conf
     # gsettings get org.gnome.desktop.background picture-uri './themes/$THEME/background.jpg'
 
     source ~/.local/scripts/themes/$THEME/vscode.sh
