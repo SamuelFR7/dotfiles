@@ -26,18 +26,36 @@ return {
                             print(".php-cs-fixer.php not found, using default configuration")
                         end
 
-                        return {
-                            exe = "~/.local/share/nvim/mason/bin/php-cs-fixer",
-                            args = {
-                                "fix",
-                                config_path and "--config=" .. util.escape_path(config_path) or nil,
-                                util.escape_path(util.get_current_buffer_file_path()),
-                            },
-                            stdin = false,
-                        }
-                    end
-                }
+            return {
+              exe = "~/.local/share/nvim/mason/bin/php-cs-fixer",
+              args = {
+                "fix",
+                config_path and "--config=" .. util.escape_path(config_path) or nil,
+                util.escape_path(util.get_current_buffer_file_path()),
+              },
+              stdin = false,
             }
-        })
-    end
+          end
+        },
+        javascript = {
+          function()
+            return {
+              exe = "~/.local/share/nvim/mason/bin/prettier",
+              args = { "--stdin-filepath", util.escape_path(util.get_current_buffer_file_path()) },
+              stdin = true,
+            }
+          end
+        },
+        typescript = {
+          function()
+            return {
+              exe = "~/.local/share/nvim/mason/bin/prettier",
+              args = { "--stdin-filepath", util.escape_path(util.get_current_buffer_file_path()) },
+              stdin = true,
+            }
+          end
+        }
+      }
+    })
+  end
 }
