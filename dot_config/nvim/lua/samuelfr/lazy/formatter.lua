@@ -30,6 +30,7 @@ return {
               exe = "~/.local/share/nvim/mason/bin/php-cs-fixer",
               args = {
                 "fix",
+                "--using-cache=no",
                 config_path and "--config=" .. util.escape_path(config_path) or nil,
                 util.escape_path(util.get_current_buffer_file_path()),
               },
