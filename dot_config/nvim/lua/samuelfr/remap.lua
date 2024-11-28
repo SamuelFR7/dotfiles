@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>f", '<cmd>FormatWrite<CR>', { silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -10,7 +9,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -28,3 +27,11 @@ vim.keymap.set('n', '<F12>', '<cmd>lua require("dap").step_out()<CR>', { noremap
 vim.keymap.set('n', '<F9>', '<cmd>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>du', '<cmd>lua require("dapui").toggle()<CR>', { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>f", function()
+  require("conform").format()
+end, { silent = true })
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   callback = function()
+--     require("conform").format({ async = false })
+--   end,
+-- })
