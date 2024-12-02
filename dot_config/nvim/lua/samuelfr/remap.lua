@@ -26,6 +26,7 @@ vim.keymap.set("n", "<F11>", '<cmd>lua require("dap").step_into()<CR>', { norema
 vim.keymap.set("n", "<F12>", '<cmd>lua require("dap").step_out()<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "<F9>", '<cmd>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>du", '<cmd>lua require("dapui").toggle()<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { silent = true })
 
 vim.keymap.set("n", "<leader>f", function()
 	require("conform").format()
