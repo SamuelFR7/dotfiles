@@ -26,7 +26,7 @@ return {
 			lsp_format = "fallback",
 		},
 		format_on_save = function(bufnr)
-			local ignore_filetypes = { "php", "typescript" }
+			local ignore_filetypes = { "php" }
 			if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
 				return
 			end
