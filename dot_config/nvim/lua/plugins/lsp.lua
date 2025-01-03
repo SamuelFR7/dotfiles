@@ -43,6 +43,7 @@ return {
 				"html",
 				"cssls",
 				"sqlls",
+				"tailwindcss",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -158,13 +159,26 @@ return {
 					["/opt/sources/sidapi"] = "/opt/sources/sidapi",
 					["/opt/sources/sidato"] = "/opt/sources/sidato",
 					["/opt/sources/sidiarn"] = "/opt/sources/sidiarn",
-					["/opt/sources/sigaderr"] = "/opt/sources/sigaderr",
 					["/opt/sources/sigama"] = "/opt/sources/sigama",
 					["/opt/sources/sigeal"] = "/opt/sources/sigeal",
 					["/opt/sources/sisdiagro"] = "/opt/sources/sisdiagro",
+					["/var/www/html"] = "/opt/sources/sigaderr",
+					-- ["/var/www/html"] = "/opt/sources/sidase",
 				},
 			},
 		}
+
+		-- dap.configurations.php = {
+		-- 	{
+		-- 		type = "php",
+		-- 		request = "launch",
+		-- 		name = "Listen for Xdebug",
+		-- 		port = 9000,
+		-- 		pathMappings = {
+		-- 			["/var/www/html"] = "/opt/sources/sigaderr",
+		-- 		},
+		-- 	},
+		-- }
 
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			require("dapui").open()

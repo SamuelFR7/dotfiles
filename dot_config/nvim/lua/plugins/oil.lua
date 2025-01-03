@@ -15,6 +15,7 @@ return {
 			["g\\"] = { "actions.toggle_trash", mode = "n" },
 		},
 		use_default_keymaps = false,
+		skip_confirm_for_simple_edits = true,
 	},
 	dependencies = { { "echasnovski/mini.icons", opts = {} } },
 }
