@@ -54,6 +54,8 @@ alias ipecomposerdown='docker compose -f /opt/sources/docker-v2/infra/docker-com
 
 # Bindkeys
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey '^A' beginning-of-line
+
 
 export BUN_INSTALL="$HOME/.bun"
 export PATH="/opt/nvim-linux64/bin:$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/scripts"
