@@ -6,7 +6,14 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"j-hui/fidget.nvim",
 	},
-	config = function()
+	opts = {
+		ensure_installed = {
+			"stylua",
+			"prettierd",
+			"php-cs-fixer",
+		},
+	},
+	config = function(_, opts)
 		local capabilities = vim.tbl_deep_extend(
 			"force",
 			{},
@@ -15,11 +22,25 @@ return {
 		)
 
 		require("fidget").setup({})
-		require("mason").setup({
-			ensure_installed = {
-				"prettierd",
-			},
-		})
+		require("mason").setup(opts)
+		local mr = require("mason-registry")
+		mr:on("package:install:success", function()
+			vim.defer_fn(function()
+				require("lazy.core.handler.event").trigger({
+					event = "FileType",
+					buf = vim.api.nvim_get_current_buf(),
+				})
+			end, 100)
+		end)
+
+		mr.refresh(function()
+			for _, tool in ipairs(opts.ensure_installed) do
+				local p = mr.get_package(tool)
+				if not p:is_installed() then
+					p:install()
+				end
+			end
+		end)
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
