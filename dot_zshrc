@@ -51,6 +51,7 @@ alias vim="nvim"
 alias lg="lazygit"
 alias ipecomposerup='docker compose -f /opt/sources/docker-v2/infra/docker-compose.yml up -d'
 alias ipecomposerdown='docker compose -f /opt/sources/docker-v2/infra/docker-compose.yml down'
+alias integrationup="docker compose -f $HOME/www/integration/docker-compose.yml up -d"
 
 # Bindkeys
 bindkey -s ^f "tmux-sessionizer\n"
@@ -59,7 +60,7 @@ bindkey '^A' beginning-of-line
 
 export BUN_INSTALL="$HOME/.bun"
 export PATH="/opt/nvim-linux64/bin:$BUN_INSTALL/bin:$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/bin:$HOME/.local/scripts"
-eval "$($HOME/.local/bin/mise activate zsh)"
+# eval "$($HOME/.local/bin/mise activate zsh)"
 export ANDROID_HOME="$HOME/Android/Sdk"
 
 # pnpm
@@ -70,4 +71,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export EDITOR="/opt/nvim-linux64/bin/nvim"
+export EDITOR=$(command -v nvim)
